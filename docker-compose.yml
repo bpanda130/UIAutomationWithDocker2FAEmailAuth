@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  chrome:
+    image: selenium/standalone-chrome:latest
+    hostname: chrome
+    privileged: true
+    shm_size: 2g
+    ports:
+      - '4445:4444'
+    volumes:
+      - ./target:/usr/src/app/target
+      - ~/.m2:/root/.m2
+
+  firefox:
+    image: selenium/standalone-firefox:latest
+    hostname: firfox
+    privileged: true
+    shm_size: 2g
+    ports:
+      - '4446:4444'
